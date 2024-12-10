@@ -14,7 +14,7 @@ const AdminPanel = () => {
 
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-      {/* <h2 className="text-3xl font-bold text-blue-600 mb-6">Admin Panel</h2>
+      <h2 className="text-3xl font-bold text-blue-600 mb-6">Admin Panel</h2>
       <form
         className="bg-white shadow-md rounded-lg p-6 max-w-lg mx-auto"
         onSubmit={handleSubmit}
@@ -51,7 +51,7 @@ const AdminPanel = () => {
         >
           Add Medicine
         </button>
-      </form> */}
+      </form>
     </div>
   );
 };
