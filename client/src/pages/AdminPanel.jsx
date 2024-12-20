@@ -9,6 +9,7 @@ const AdminPanel = () => {
     price: "",
     image: null,
   });
+  const [preview, setPreview] = useState(null);
 
   const navigate = useNavigate();
 
@@ -28,6 +29,7 @@ const AdminPanel = () => {
         ctx.drawImage(img, 0, 0, width, height);
         const resizedImage = canvas.toDataURL("image/jpeg");
         setFormData({ ...formData, image: resizedImage });
+        setPreview(resizedImage);
       };
     };
     reader.readAsDataURL(file);
@@ -39,6 +41,7 @@ const AdminPanel = () => {
     const storedMedicines = JSON.parse(localStorage.getItem("medicines")) || [];
     localStorage.setItem("medicines", JSON.stringify([...storedMedicines, newMedicine]));
     setFormData({ name: "", category: "", price: "", image: null });
+    setPreview(null);
     navigate("/medicines");
   };
 
@@ -83,6 +86,13 @@ const AdminPanel = () => {
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
             required
           />
+          {preview && (
+            <img
+              src={preview}
+              alt="Preview"
+              className="w-full h-24 object-contain mt-4 mb-4"
+            />
+          )}
           <button
             type="submit"
             className="bg-blue-600 text-white font-bold py-2 px-4 rounded-md hover:bg-blue-700"
