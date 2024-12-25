@@ -76,11 +76,11 @@ const Navbar = () => {
           </li>
           <li>
             <Link
-              to="/admin"
+              to="/signup"
               className="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
               onClick={() => setIsMenuOpen(false)}
             >
-              Admin
+              Signup
             </Link>
           </li>
         </ul>

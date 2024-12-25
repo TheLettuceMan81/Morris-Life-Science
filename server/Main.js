@@ -14,7 +14,8 @@ app.get("/", (req, res) => {
   });
 });
 
-app.use("/api/admin", adminRoutes);
+app.use("/api/user", adminRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });

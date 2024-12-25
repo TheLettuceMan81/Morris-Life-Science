@@ -1,19 +1,14 @@
-import Admin from "../models/Admin.model.js";
-
-export const getAdmins = async (req, res) => {
-  try {
-    const admins = await Admin.find();
-    res.json(admins);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
-};
-
-export const createAdmin = async (req, res) => {
-  const newAdmin = new Admin({
-    userEmail: req.body.userEmail,
-    password: req.body.password,
+import newUser from "../models/Admin.model.js";
+import bcrypt from "bcrypt";
+export const createUser = async (req, res) => {
+  const { username, email, password } = req.body;
+  const hash = bcrypt.hashSync(password, 10);
+  const newAdmin = new newUser({
+    username: username,
+    email: email,
+    password: hash,
   });
+
   try {
     const admin = await newAdmin.save();
     res.status(201).json(admin);
