@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../assets/logo.jpg"; // Replace with the correct path to your logo file
-
+import logo from "../assets/logo.jpg";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -80,7 +79,16 @@ const Navbar = () => {
               className="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
               onClick={() => setIsMenuOpen(false)}
             >
-              Signup
+              Admin
+            </Link>
+          </li>
+          <li>
+            <Link
+              to="/login"
+              className="block md:inline text-white hover:text-gray-300 py-2 md:py-0"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              login
             </Link>
           </li>
         </ul>

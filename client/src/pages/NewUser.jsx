@@ -30,12 +30,14 @@ function NewUser() {
       setError("");
       setSuccess("");
 
-      // Sending data to the backend
-      const response = await axios.post("http://localhost:5050/api/user", {
-        username: formData.username,
-        email: formData.email,
-        password: formData.password,
-      });
+      const response = await axios.post(
+        "http://localhost:5050/api/user/register",
+        {
+          username: formData.username,
+          email: formData.email,
+          password: formData.password,
+        }
+      );
 
       if (response.status === 201) {
         setSuccess("Account created successfully!");
@@ -56,7 +58,7 @@ function NewUser() {
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
         <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">
-          Create an Account
+          Admin Login
         </h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -127,7 +129,11 @@ function NewUser() {
               required
             />
           </div>
-          {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
+          {error && (
+            <p className="text-red-500 text-sm mb-4">
+              {"Email is already exits!"}
+            </p>
+          )}
           {success && <p className="text-green-500 text-sm mb-4">{success}</p>}
           <button
             type="submit"

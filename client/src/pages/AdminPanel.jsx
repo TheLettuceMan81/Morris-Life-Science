@@ -61,7 +61,7 @@ const AdminPanel = () => {
             placeholder="Medicine Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="block w-full border border-gray-300 bg-white  text-balck rounded-md px-4 py-2 mb-4"
+            className="block w-full border border-gray-300 bg-white  text-black rounded-md px-4 py-2 mb-4"
             required
           />
           <input

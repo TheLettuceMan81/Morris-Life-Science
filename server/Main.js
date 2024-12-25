@@ -4,8 +4,10 @@ import connectDB from "./lib/db.js";
 import adminRoutes from "./routes/Admin.route.js";
 const PORT = process.env.PORT || 5050;
 const app = express();
+
 app.use(cors());
 app.use(express.json());
+
 connectDB();
 
 app.get("/", (req, res) => {
@@ -14,7 +16,9 @@ app.get("/", (req, res) => {
   });
 });
 
+// Routes for user and login
 app.use("/api/user", adminRoutes);
+app.use("/api/login", adminRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
