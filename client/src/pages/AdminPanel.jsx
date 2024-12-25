@@ -39,7 +39,10 @@ const AdminPanel = () => {
     e.preventDefault();
     const newMedicine = { ...formData, id: Date.now() };
     const storedMedicines = JSON.parse(localStorage.getItem("medicines")) || [];
-    localStorage.setItem("medicines", JSON.stringify([...storedMedicines, newMedicine]));
+    localStorage.setItem(
+      "medicines",
+      JSON.stringify([...storedMedicines, newMedicine])
+    );
     setFormData({ name: "", category: "", price: "", image: null });
     setPreview(null);
     navigate("/medicines");
@@ -58,7 +61,7 @@ const AdminPanel = () => {
             placeholder="Medicine Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+            className="block w-full border border-gray-300 bg-white  text-balck rounded-md px-4 py-2 mb-4"
             required
           />
           <input
@@ -68,15 +71,17 @@ const AdminPanel = () => {
             onChange={(e) =>
               setFormData({ ...formData, category: e.target.value })
             }
-            className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+            className="block w-full border border-gray-300 rounded-md text-black bg-white px-4 py-2 mb-4"
             required
           />
           <input
             type="number"
             placeholder="Price"
             value={formData.price}
-            onChange={(e) => setFormData({ ...formData, price: e.target.value })}
-            className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+            onChange={(e) =>
+              setFormData({ ...formData, price: e.target.value })
+            }
+            className="block w-full border border-gray-300 rounded-md text-black bg-white  px-4 py-2 mb-4"
             required
           />
           <input
