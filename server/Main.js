@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import connectDB from "./lib/db.js";
+import adminRoutes from "./routes/Admin.route.js";
 const PORT = process.env.PORT || 5050;
 const app = express();
 app.use(cors());
@@ -13,6 +14,7 @@ app.get("/", (req, res) => {
   });
 });
 
+app.use("/api/admin", adminRoutes);
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
